@@ -1,152 +1,73 @@
-@import url('../css/fonts.css');
-html,
-body {
-    margin: 0%;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
-:root {
-    /* theme colors         */
-    --text-black: #000000;
-    --text-light: #686666da;
-    --text-gray: #3f4954;
-    --bg-color: #ffffff;
-    --white: #ffffff;
-    --white-gray: #c3cfe2;
-    --black: #000000;
-    --midnight: #104f55;
-    /* gradient color */
-    /* --cloudy-knoxville: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    --saint-petersburg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    --sharp-glass: linear-gradient(-180deg, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%); */
-    /* theme font-family    */
-    --Merriweather: 'Merriweather';
-    --Montserrat: 'Montserrat';
-    --Ubuntu: 'Ubuntu';
+body {
+    background: #ffffff;
 }
 
-
-/* -------------- global classes -------------- */
-
-a {
-    text-decoration: none;
-    color: var(--text-black);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
 }
 
-.flex-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+h1 {
+    font-size: 40px;
+    font-weight: 200;
+    line-height: 50px;
 }
 
-ul {
-    list-style-type: none;
+h2 {
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: 0;
 }
 
-
-/* ------x------- global classes ------x------- */
-
-
-/* ------------------ navbar ------------------ */
-
-.nav {
-    background: white;
-    padding: 0 2rem;
-    height: 0rem;
-    min-height: 10vh;
-    overflow: hidden;
-    transition: height 1s ease-in-out;
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 32px;
 }
 
-.nav .nav-items {
-    display: flex;
-    margin: 0;
+h4 {
+    color: #505050;
+    font-size: 18px;
+    line-height: 28px;
 }
 
-.nav .nav-menu {
-    justify-content: space-between;
-}
-
-.nav .toggle-collapse {
-    position: absolute;
-    top: 0%;
-    width: 90%;
-    cursor: pointer;
-    display: none;
-}
-
-.nav .toggle-collapse .toggle-icons {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1.7rem 0;
-}
-
-.nav .toggle-collapse .toggle-icons i {
-    font-size: 1.4rem;
-    color: var(--text-gray);
-}
-
-.collapse {
-    height: 30rem;
-}
-
-.nav .nav-items {
-    display: flex;
-    margin: 0;
-}
-
-.nav .nav-items .nav-link {
-    padding: 1.6rem 1rem;
-    font-size: 1.1rem;
-    position: relative;
-    font-family: var(--Ubuntu);
-    font-size: 1.1rem;
-}
-
-.nav .nav-items .nav-link:hover {
-    background-color: var(--white-gray);
-}
-
-.nav .nav-items .nav-link:hover a {
-    color: var(--white);
-}
-
-.nav .nav-brand a {
-    font-size: 1.6rem;
-    padding: 1rem 0;
-    display: block;
-    font-family: var(--Montserrat);
-    font-size: 1.6rem;
-}
-
-.nav .social {
-    padding: 1.4rem 0;
-}
-
-.nav .social i {
-    padding: 0 0.2rem;
-}
-
-.nav .social i:hover {
-    color: var(--white-gray);
+p {
+    color: #757575;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0.5px;
 }
 
 
-/* ---------x-------- navbar ---------x-------- */
+/* ------------------------------------
+   MENU
+--------------------------------------- */
 
-
-/* --- Viewport less then or equal to 800px --- */
-
-@media only screen and (max-width:800px) {
-    .nav .nav-menu,
-    .nav .nav-items {
-        flex-direction: column;
-    }
-    .nav .toggle-collapse {
-        display: initial;
-    }
+.navbar .navbar-brand {
+    font-weight: normal;
+    font-size: 25px;
 }
 
 
-/* -x- Viewport less then or equal to 800px -x- */
+/* ------------------------------------
+   GENERAL
+--------------------------------------- */
+
+#about,
+#project,
+#team,
+#contact,
+footer {
+    background: #ffffff;
+}
