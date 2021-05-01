@@ -75,7 +75,7 @@ button.btn {
 .nav {
     padding: 0 2rem;
     height: 0rem;
-    min-height: 110vh;
+    min-height: 10vh;
     overflow: hidden;
     transition: height 1s ease-in-out;
 }
