@@ -31,7 +31,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--text-gray);
+    color: var(--text-black);
 }
 
 .flex-row {
@@ -57,6 +57,11 @@ ul {
     min-height: 10vh;
     overflow: hidden;
     transition: height 1s ease-in-out;
+}
+
+.nav .nav-items {
+    display: flex;
+    margin: 0;
 }
 
 .nav .nav-menu {
@@ -95,12 +100,12 @@ ul {
     padding: 1.6rem 1rem;
     font-size: 1.1rem;
     position: relative;
-    font-family: var(--Abel);
+    font-family: var(--Ubuntu);
     font-size: 1.1rem;
 }
 
 .nav .nav-items .nav-link:hover {
-    background-color: var(--midnight);
+    background-color: var(--white-gray);
 }
 
 .nav .nav-items .nav-link:hover a {
@@ -111,7 +116,7 @@ ul {
     font-size: 1.6rem;
     padding: 1rem 0;
     display: block;
-    font-family: var(--Lexend);
+    font-family: var(--Montserrat);
     font-size: 1.6rem;
 }
 
@@ -120,11 +125,11 @@ ul {
 }
 
 .nav .social i {
-    padding: 0 .2rem;
+    padding: 0 0.2rem;
 }
 
 .nav .social i:hover {
-    color: #a1c4cf;
+    color: var(--white-gray);
 }
 
 
