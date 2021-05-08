@@ -159,22 +159,6 @@ button.btn {
 
 /* ---------------- Site Title ---------------- */
 
-main .site-title h1,
-h3 {
-    margin: .3rem;
-}
-
-main .site-title .btn {
-    margin: 1.8rem;
-    background: var(--white-gray);
-}
-
-main .site-title .btn:hover {
-    background: transparent;
-    color: var(--white);
-    border: 1px solid var(--white);
-}
-
 
 /* --------x------- Site Title --------x------- */
 
