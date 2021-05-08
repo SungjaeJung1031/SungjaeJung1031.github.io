@@ -21,56 +21,72 @@
 
 
 <body>
+    <section>
+        <div class="bannerVideo" id="slideShow">
+            <video src="./video/munich-compressed.mp4" autoplay muted loop class="active"></video>
+            <video src="./video/inside-piano-close-compressed.mp4" autoplay muted loop></video>
+            <video src="./video/zigzag-road-2-compressed.mp4" autoplay muted loop></video>
+        </div>
 
-
-    <nav class="nav">
-        <div class="nav-menu flex-row">
-            <div class="nav-brand">
-                <a href="#" class="text-gray">informatiklavier</a>
-            </div>
-            <div class="toggle-collapse">
-                <div class="toggle-icons">
-                    <i class="fas fa-bars"></i>
+        <div class="container">
+            <header id="navbar">
+                <a href="#" class="logo">informatiklavier</a>
+                <ul>
+                    <li><a href="#" class="active">HOME</a></li>
+                    <li><a href="#">BLOG</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <div class="bannerText">
+                    <div class="active">
+                        <h2>Informatiklavier1</h2>
+                        <p>Informatiklavier1</p>
+                    </div>
+                    <div>
+                        <h2>Informatiklavier2</h2>
+                        <p>Informatiklavier2</p>
+                    </div>
+                    <div>
+                        <h2>Informatiklavier3</h2>
+                        <p>Informatiklavier3</p>
+                    </div>
                 </div>
             </div>
-            <div>
-                <ul class="nav-items">
-                    <li class="nav-link">
-                        <a href="#">HOME</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">CATEGORY</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">ARCHIVE</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">PAGE</a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="#">CONTACT</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="social text-gray">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github-square"></i></a>
-                <a href="#"><i class="fab fa-medium"></i></a>
-            </div>
+            <ul class="sci">
+                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fab fa-github-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-medium"></i></a></li>
+            </ul>
+
+            <ul class="controls">
+                <li onclick="prevSlide();"><a href="#"><i class="fas fa-angle-left"></i></a></li>
+                <li onclick="nextSlide();"><a href="#"><i class="fas fa-angle-right"></i></a></li>
+            </ul>
         </div>
-    </nav>
+    </section>
+
+    <script>
+        const slideShow = Document.getElementById('slideShow');
+        const slides = slideShow.getElementByTagName('video');
+        var index = 0;
+
+        function nextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        function prevSlide() {
+            slides[index].classList.remove('active');
+            index = (index + slides.lenght - 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+    </script>
+
     
 
-
-
-
-    <script src="./js/Jquery3.6.0.min.js"></script>
-
-
-    <script src="./js/owl.carousel.min.js"></script>
-
-
-    <script src="./js/main.js"></script>
 </body>
 
 </html>
