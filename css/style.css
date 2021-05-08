@@ -13,7 +13,7 @@ body {
     --text-gray: #3f4954;
     --bg-color: #ffffff;
     --white: #ffffff;
-    --white-gray: #c3cfe2;
+    --white-gray: #dddddd;
     --black: #000000;
     --midnight: #104f55;
     /* gradient color */
@@ -31,7 +31,7 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--text-black);
+    color: var(--text-gray);
 }
 
 .flex-row {
@@ -44,6 +44,29 @@ ul {
     list-style-type: none;
 }
 
+h1 {
+    font-family: var(--Ubuntu);
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: var(--Merriweather);
+}
+
+h3 {
+    font-family: var(--Montserrat);
+    font-size: 1.3rem;
+}
+
+button.btn {
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-family: var(--Ubuntu);
+    cursor: pointer;
+}
+
 
 /* ------x------- global classes ------x------- */
 
@@ -51,17 +74,12 @@ ul {
 /* ------------------ navbar ------------------ */
 
 .nav {
-    background: white;
     padding: 0 2rem;
     height: 0rem;
     min-height: 10vh;
     overflow: hidden;
     transition: height 1s ease-in-out;
-}
-
-.nav .nav-items {
-    display: flex;
-    margin: 0;
+    z-index: 4;
 }
 
 .nav .nav-menu {
@@ -88,7 +106,7 @@ ul {
 }
 
 .collapse {
-    height: 30rem;
+    height: 32rem;
 }
 
 .nav .nav-items {
@@ -100,7 +118,7 @@ ul {
     padding: 1.6rem 1rem;
     font-size: 1.1rem;
     position: relative;
-    font-family: var(--Ubuntu);
+    font-family: var(--Abel);
     font-size: 1.1rem;
 }
 
@@ -116,7 +134,7 @@ ul {
     font-size: 1.6rem;
     padding: 1rem 0;
     display: block;
-    font-family: var(--Montserrat);
+    font-family: var(--Lexend);
     font-size: 1.6rem;
 }
 
@@ -125,15 +143,67 @@ ul {
 }
 
 .nav .social i {
-    padding: 0 0.2rem;
+    padding: 0 .2rem;
 }
 
 .nav .social i:hover {
-    color: var(--white-gray);
+    color: #a1c4cf;
 }
 
 
 /* ---------x-------- navbar ---------x-------- */
+
+
+/* --------------- Main Content --------------- */
+
+
+/* ---------------- Site Title ---------------- */
+
+main .site-title {
+    background-size: cover;
+    height: 110vh;
+    display: flex;
+    justify-content: center;
+}
+
+main .site-title .site-background {
+    padding-top: 10rem;
+    text-align: center;
+    color: var(--text-black);
+}
+
+main .site-title h1,
+h3 {
+    margin: 0.3rem;
+}
+
+main .site-title .btn {
+    margin: 1.8rem;
+    background: var(--white-gray);
+}
+
+main .site-title .btn:hover {
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--gray);
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -4;
+}
+
+
+/* --------x------- Site Title --------x------- */
+
+
+/* -------x------- Main Content -------x------- */
 
 
 /* --- Viewport less then or equal to 800px --- */
