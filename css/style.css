@@ -11,6 +11,7 @@ body {
     --text-black: #000000;
     --text-light: #686666da;
     --text-gray: #3f4954;
+    --bg-color: #ffffff;
     --white: #ffffff;
     --white-gray: #dddddd;
     --black: #000000;
@@ -73,6 +74,7 @@ button.btn {
 /* ------------------ navbar ------------------ */
 
 .nav {
+    background: white;
     padding: 0 2rem;
     height: 0rem;
     min-height: 10vh;
@@ -158,6 +160,8 @@ button.btn {
 /* ---------------- Site Title ---------------- */
 
 main .site-title {
+    background: #ffffff;
+    opacity: 0.3;
     background-size: cover;
     height: 110vh;
     display: flex;
@@ -168,6 +172,7 @@ main .site-title .site-background {
     padding-top: 10rem;
     text-align: center;
     color: var(--text-black);
+    z-index: 2;
 }
 
 main .site-title h1,
@@ -183,18 +188,18 @@ main .site-title .btn {
 main .site-title .btn:hover {
     background: var(--black);
     color: var(--white);
-    border: 1px solid var(--gray);
+    border: 1px sold var(--gray);
 }
 
 video {
     position: absolute;
+    z-index: -2;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    z-index: -4;
 }
 
 
