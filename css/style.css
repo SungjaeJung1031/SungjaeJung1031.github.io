@@ -74,12 +74,12 @@ button.btn {
 /* ------------------ navbar ------------------ */
 
 .nav {
+    background: var(--white);
     padding: 0 2rem;
     height: 0rem;
     min-height: 10vh;
     overflow: hidden;
     transition: height 1s ease-in-out;
-    z-index: 4;
 }
 
 .nav .nav-menu {
@@ -106,7 +106,7 @@ button.btn {
 }
 
 .collapse {
-    height: 32rem;
+    height: 30rem;
 }
 
 .nav .nav-items {
@@ -158,6 +158,22 @@ button.btn {
 
 
 /* ---------------- Site Title ---------------- */
+
+main .site-title h1,
+h3 {
+    margin: .3rem;
+}
+
+main .site-title .btn {
+    margin: 1.8rem;
+    background: var(--white-gray);
+}
+
+main .site-title .btn:hover {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+}
 
 
 /* --------x------- Site Title --------x------- */
