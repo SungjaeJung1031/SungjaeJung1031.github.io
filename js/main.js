@@ -8,37 +8,37 @@
 //     });
 // });
 
-const slideShow = document.getElementById('slideShow');
-const slides = slideShow.getElementByTagName('video');
-var index = 0;
+// const slideShow = document.querySelector('.bannerVideo');
+// const slides = slideShow.getElementByTagName('video');
+// var index = 0;
 
-function nextSlide() {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-}
+// function nextSlide() {
+//     slides[index].classList.remove('active');
+//     index = (index + 1) % slides.length;
+//     slides[index].classList.add('active');
+// }
 
-function prevSlide() {
-    slides[index].classList.remove('active');
-    index = (index + slide.lenght - 1) % slides.length;
-    slides[index].classList.add('active');
-}
+// function prevSlide() {
+//     slides[index].classList.remove('active');
+//     index = (index + slides.length - 1) % slides.length;
+//     slides[index].classList.add('active');
+// }
 
-const slideShowText = document.getElementById('slideShowText');
-const slidesText = slideShowText.getElementByTagName('div');
-var index = 0;
+// const slideShowText = document.getElementById('slideShowText');
+// const slidesText = slideShowText.getElementByTagName('div');
+// var index = 0;
 
-function nextSlideText() {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-}
+// function nextSlideText() {
+//     slides[index].classList.remove('active');
+//     index = (index + 1) % slides.length;
+//     slides[index].classList.add('active');
+// }
 
-function prevSlideText() {
-    slides[index].classList.remove('active');
-    index = (index + slide.lenght - 1) % slides.length;
-    slides[index].classList.add('active');
-}
+// function prevSlideText() {
+//     slides[index].classList.remove('active');
+//     index = (index + slides.length - 1) % slides.length;
+//     slides[index].classList.add('active');
+// }
 
 function toggleMenu() {
     const menuIcon = document.querySelector('.menuIcon');
