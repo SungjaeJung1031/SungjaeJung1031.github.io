@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>SLOW-MOTION</title>
-    <link>/</link>
-    <description>Recent content on SLOW-MOTION</description>
+    <title>Threads on SLOW-MOTION</title>
+    <link>/tags/threads/</link>
+    <description>Recent content in Threads on SLOW-MOTION</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/threads/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>THREADS PROGRAMMING</title>
