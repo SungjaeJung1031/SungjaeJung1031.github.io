@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on SLOW-MOTION</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on SLOW-MOTION</description>
+    <title>Tags on Slow Motion</title>
+    <link>https://example.com/tags/</link>
+    <description>Recent content in Tags on Slow Motion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 16 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>C&#43;&#43;</title>
-      <link>/tags/c&#43;&#43;/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <title>Artificial Intelligence</title>
+      <link>https://example.com/tags/Artificial-Intelligence/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/c&#43;&#43;/</guid>
+      <guid>https://example.com/tags/Artificial-Intelligence/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Threads</title>
-      <link>/tags/threads/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <title>Machine Learning</title>
+      <link>https://example.com/tags/Machine-Learning/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>/tags/threads/</guid>
+      <guid>https://example.com/tags/Machine-Learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://example.com/tags/Reinforcement-Learning/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/tags/Reinforcement-Learning/</guid>
       <description></description>
     </item>
     

@@ -1,50 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
+  <sitemap>
+    <loc>https://example.com/en/sitemap.xml</loc>
+    
+      <lastmod>2022-02-22T22:39:05+09:00</lastmod>
+    
+  </sitemap>
   
-  <url>
-    <loc>/tags/c&#43;&#43;/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
+  <sitemap>
+    <loc>https://example.com/ko/sitemap.xml</loc>
+    
+  </sitemap>
   
-  <url>
-    <loc>/categories/c&#43;&#43;/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/threads/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/threads-programming/</loc>
-    <lastmod>2022-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-</urlset>
+</sitemapindex>

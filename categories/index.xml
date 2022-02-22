@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on SLOW-MOTION</title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on SLOW-MOTION</description>
+    <title>Categories on Slow Motion</title>
+    <link>https://example.com/categories/</link>
+    <description>Recent content in Categories on Slow Motion</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 16 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Artificial Intelligence</title>
+      <link>https://example.com/categories/Artificial-Intelligence/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/Artificial-Intelligence/</guid>
+      <description></description>
+    </item>
     
     <item>
-      <title>C&#43;&#43;</title>
-      <link>/categories/c&#43;&#43;/</link>
-      <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+      <title>Machine Learning</title>
+      <link>https://example.com/categories/Machine-Learning/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>/categories/c&#43;&#43;/</guid>
+      <guid>https://example.com/categories/Machine-Learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://example.com/categories/Reinforcement-Learning/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/Reinforcement-Learning/</guid>
       <description></description>
     </item>
     

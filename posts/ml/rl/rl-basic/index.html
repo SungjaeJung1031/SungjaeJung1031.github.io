@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="RL Basic" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/ml/rl/rl-basic/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-22T22:39:05+09:00" />
+
+<title>RL Basic | Slow Motion</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.9403e0fe466677510e168762f60d0b81286503bb8e0c59e8be4ab2da7c99a6eb.css" integrity="sha256-lAPg/kZmd1EOFodi9g0LgShlA7uODFnovkqy2nyZpus=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.c52b0ca2f316d9019df1c573ef12f2cf4415b4735c6249c93ddb260e386c006d.js" integrity="sha256-xSsMovMW2QGd8cVz7xLyz0QVtHNcYknJPdsmDjhsAG0=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><img src="/logo/sailing.png" alt="Logo" /><span>Slow Motion</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        English
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://example.com/ko/">
+          Korean
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/" >
+        AI
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://github.com/SungjaeJung1031" target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>RL Basic</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#state-and-observation">State and Observation</a></li>
+        <li><a href="#action">Action</a></li>
+        <li><a href="#policy">Policy</a></li>
+        <li><a href="#trajectory">Trajectory</a></li>
+        <li><a href="#return">Return</a></li>
+        <li><a href="#exploration-vs-exploitation">Exploration vs. Exploitation</a></li>
+        <li><a href="#greedy-algorithm">Greedy Algorithm</a></li>
+        <li><a href="#rl-problem">RL Problem</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown">
+  <h1>
+    <a href="/posts/ml/rl/rl-basic/">RL Basic</a>
+  </h1>
+  
+  <h5>February 16, 2022</h5>
+
+
+
+  
+  <div>
+    
+      <a href="/categories/Artificial-Intelligence/">Artificial Intelligence</a>, 
+      <a href="/categories/Machine-Learning/">Machine Learning</a>, 
+      <a href="/categories/Reinforcement-Learning/">Reinforcement Learning</a>
+  </div>
+  
+
+  
+  <div>
+    
+      <a href="/tags/Artificial-Intelligence/">Artificial Intelligence</a>, 
+      <a href="/tags/Machine-Learning/">Machine Learning</a>, 
+      <a href="/tags/Reinforcement-Learning/">Reinforcement Learning</a>
+  </div>
+  
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+<p>Machine learning has 3 basic areas: supervised learning, unsupervised learning, and reinforcement learning. Below is the brief comparison of the areas.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Supervised Learning</th>
+<th>Unsupervised Learning</th>
+<th>Reinforcement Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition</td>
+<td>Approach that uses labeled datasets to train algorithms that classifies data or predicts outcomes accurately</td>
+<td>Approach to analyze and cluster unlabeled data</td>
+<td>Approach that trains a software agent from trials and errors to behave rationally in an environment to maximize the notion of cumulative reward</td>
+</tr>
+<tr>
+<td>Problem</td>
+<td>Classification / Regression</td>
+<td>Clustering / Association / Dimensionality reduction</td>
+<td>Exploitation / Exploration</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td>Linear- or Logistic- regression / SVM / KNN / Random forest / Neural networks / Naive Bayes</td>
+<td>K-Means / Apriori / Hierarchical clustering / SVD</td>
+<td>Q-Learning / SARSA</td>
+</tr>
+</tbody>
+</table>
+<p>This post will explain core terminologies and equations to understand the various algorithms of reinforcement learning.</p>
+<p>It would be helpful to have prior knowledge regarding mathematics, statistics, and machine learning for fully understanding this post. Below pages provide a wealth of information regarding the knowledge.</p>
+<ol>
+<li>
+  <a href="https://www.khanacademy.org/math">Math, Khan Academy</a></li>
+<li>
+  <a href="https://online.stat.psu.edu/statprogram/">Statistics Online, PennState Eberly Collge of Science</a></li>
+<li>
+  <a href="https://developers.google.com/machine-learning/crash-course">Machine Learning Crash Course, Google</a></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="rl-cycle.png" alt="rl-cycle" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><b>Fig 1. Reinforcement Learning Cycle</b></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fig 1</strong> shows the key mechanism of the <strong>reinforcement learning (RL)</strong>. An <strong>agent</strong> and an <strong>environment</strong> interact every step. The agent makes an <strong>action</strong> ($A_t$) with respect to the <strong>state</strong> ($S_t$) at a time step $t$. The environment generates a next state ($S_{t+1}$) for the next time step $t+1$ and the agent get the <strong>return</strong> (<strong>reward</strong> or <strong>penalty</strong>) ($R_{t+1}$). The goal of the RL is to make the agent find the best way of interaction with respect to the given policy and/or goal.</p>
+<p>Let&rsquo;s take an example of a game scenario for describing the RL learning cycle and its mechanism.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="rl-cycle-example.png" alt="rl-cycle-example" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><b>Fig 2. Reinforcement Learning Cycle Example </b></td>
+</tr>
+</tbody>
+</table>
+<p>There is a game whose objective is to move a game character from the start to the goal in a map with a boundary condition (or the wall) and the following rule.</p>
+<ul>
+<li>Reward: if the character finds the goal point.</li>
+<li>Reward: if a game is finished faster than the previous game.</li>
+<li>Penalty: if the character hits the boundary or wall in the map.</li>
+</ul>
+<p>Here, the goal of the game is to maximize the reward, and the user will try to find the best way to get the highest reward.</p>
+<p>Every time step, a user can control the game character to go to the next point, and there are four options; left, up, right, and down.
+Every move, the state of the character is changed since the place and surrounding environment of the character differ from the previous time step.</p>
+<p>The core RL cycle in <strong>Fig 1</strong>** can be formulated as follows:</p>
+<p>$$
+Q(s_{t}, a_{t}) ← Q(s_{t}, a_{t}) + \alpha[r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a) - Q(S_{t}, a_{t})] \tag{1}
+$$</p>
+<p>The following sections will describe the terms to understand the core RL Equation.</p>
+<ul>
+<li>
+  <a href="/#agent">Agent</a></li>
+<li>
+  <a href="/#state-and-observation">State and Observation</a></li>
+<li>
+  <a href="/#action">Action</a></li>
+<li>
+  <a href="/#policy">Policy</a></li>
+<li>
+  <a href="/#trajectory">Trajectory</a></li>
+<li>
+  <a href="/#return">Return</a></li>
+<li>
+  <a href="/#exploration-vs-exploitation">Exploration vs. Exploitation</a></li>
+<li>
+  <a href="/#greedy-algorithm">Greedy Algorithm</a></li>
+<li>
+  <a href="/#rl-problem">RL Problem</a></li>
+</ul>
+<h2 id="agent">
+  Agent
+  <a class="anchor" href="#agent">#</a>
+</h2>
+<p>An <strong>agent</strong> is a component who acts in accordance with the Equation 1. The action of the agent is optimized by trials and errors. The obtimized action can achieve the goal to makes the maximum cumulative return (reward or penalty).</p>
+<h2 id="state-and-observation">
+  State and Observation
+  <a class="anchor" href="#state-and-observation">#</a>
+</h2>
+<p>A <strong>state</strong> $s$ describes the world and an <strong>observation</strong> $o$ is fragmentary information of a state. Observations are the information that an agent can sense the state of the world. The terms <strong>fully observed</strong> or <strong>partially observed</strong> are used when the environment is completely and partially observed respectively.
+In the case of automobile vehicles, data from various sensors such as radar, lidar, camera, and wheel speed sensors can be examples of observation. The observations can be the velocity, acceleration, yaw rate, the distance between the neighboring cars, and the number of passengers in an ego vehicle. In automotive control systems, the agent checks the various given internal and external states of the vehicle through the observations. After that, the agent decides an action to make an optimal control the vehicle with respect to the state.</p>
+<h2 id="action">
+  Action
+  <a class="anchor" href="#action">#</a>
+</h2>
+<p>An <strong>action</strong> $a$ is an agent&rsquo;s method that allows to interact or update its environment, and transfer between states. An <strong>action space</strong> is defined as a set of all valid actions in a given environment. In the case of <strong>Fig 2</strong>, environment in the 4x4 map are given to the game character. In this case, the environment is called as a <strong>discrete action space</strong> where a finite number of actions are valid to the agent to move on to the next state. The opposite is <strong>continuous action space</strong> who has an infinite number of actions in a continuous domain for the next state.</p>
+<h2 id="policy">
+  Policy
+  <a class="anchor" href="#policy">#</a>
+</h2>
+<p>A <strong>policy</strong> is a rule of an agent to make an action in an action space. The policy tends to maximize return and there are two types: <strong>deterministic policy</strong> ($\mu$) and <strong>stochastic policy</strong> ($\pi$).</p>
+<p>$$ a_{t} = \mu(s_t) $$
+$$ a_{t} \sim \pi(\cdot|s_{t}) $$</p>
+<p>$\cdot$ of the stochastic policy means that all the possible adctions in a state $s$ at time $t$. The above equations for deterministic and stochastic policies are parameterized to be computable functions with respect to a set of parameters (weights and biases of a neural network) so that an optimization algorithm works for the policies. Parameters of deterministic and stochastic policies are denoted as $\theta$ or $\phi$.</p>
+<p>$$ a_{t} = \mu_{\theta}(s_t) $$
+$$ a_{t} \sim \pi_{\theta}(\cdot|s_{t}) $$</p>
+<p>There are two most common kinds of stochastic policies in the deep RL: <strong>categorial policies</strong> used in discrete action space and <strong>diagonal Gaussian policies</strong> used in continuous action space.</p>
+<p>While using and training stochastic policies, two computations are of importance:</p>
+<ul>
+<li>sampling actions from the policy</li>
+<li>computing log-likelihoods of particular actions, $log\pi_{\theta}(a|s)$.</li>
+</ul>
+<p>The log-likelihoods of categorial policies with deterministic action samples $a$ is as follows,</p>
+<p>$$
+\begin{align}
+log\pi_{\theta}(a|s) =\text{ }&amp;log[P_{\theta}(S)]_a , \nonumber \newline
+\text{where } &amp; P_{\theta}(s) \text{ is the last layer of probabilities}, \nonumber
+\end{align}
+$$</p>
+<p>and the log-likelihoods of diagonal Gaussian policies with stochastic samples $a$ is as follows,</p>
+<p>$$
+\begin{align}
+\log\pi_{\theta}(a|s) =\text{ }&amp;-\frac{1}{2} (\sum^{k}_{i=1}(\frac{(a_i-\mu_i)^2}{\sigma^2_i})+k\log2\pi) \nonumber \\
+\text{where } &amp; a \text{ is } \mathcal{k}\text{-dimensional action} \nonumber \\
+&amp; \mu \text{ is mean} \nonumber \\
+&amp; \sigma \text{ is standard deviation} \nonumber \\
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+a =\text{ }&amp; \mu_{\theta}(s) + \sigma_{theta}(s) \odot z, \nonumber \\
+\text{where } &amp; \mu_{\theta}(s) \text{ is mean action} \nonumber \\
+&amp; \sigma_{theta}(s) \text{ is standard deviation} \nonumber \\
+&amp; z \text{ is noise from a spherical Gaussian, } z \sim \mathcal{N}(0, I) \nonumber
+\end{align}
+$$</p>
+<h2 id="trajectory">
+  Trajectory
+  <a class="anchor" href="#trajectory">#</a>
+</h2>
+<p>A <strong>trajectory</strong> $\tau$ is a sequence of states and actions in the world,</p>
+<p>$$
+\tau = (s_0, a_0, s_1, a_1,&hellip;)
+$$</p>
+<p>$s_0$ is the first state of the world and randomly sampled from the <strong>start-state-distribution</strong>, sometimes denoted by $\rho_0(\cdot)$:</p>
+<p>$$
+s_0 \sim \rho_0(\cdot)
+$$</p>
+<p>State transitions (what happens to the world between the state at time $t$, $s_t$, and the state at time $t+1$, $s_{t+1}$), are governed by the natural laws of the environment, and depend only on the most recent action, $a_t$. They can be either deterministic,</p>
+<p>$$
+s_{t+1} = f(s_t, a_t)
+$$</p>
+<p>or stochastic,</p>
+<p>$$
+s_{t+1} \sim P(\cdot|s_t, a_t).
+$$</p>
+<p>Action at every step comes from an agent in accordance with its policy.</p>
+<p><strong>Fig 2</strong> can be used to describe trajectory in RL, and the trajectory can be graphically presented as the right side of <strong>Fig 3</strong>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="trajectory-example.png" alt="trajectory-example" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><b>Fig 3. Reinforcement Learning Trajectory Example</b></td>
+</tr>
+</tbody>
+</table>
+<h2 id="return">
+  Return
+  <a class="anchor" href="#return">#</a>
+</h2>
+<p>A <strong>return (or reward)</strong> $r$ is generated by the <strong>return (or reward) function</strong> $R$ in RL. A reward at a specific time $t$ may differ with respect to the dependence with the current state of the world, the action at the same time, and the next state of the world:
+$$
+r_t = R(s_t, a_t, s_{t+1}) \text{ or } R(s_t, a_t) \text { or } R(s_t)
+$$</p>
+<p>In RL, the agent tries to maximize cumulative reward over a trajectory. The cumulative reward is denoted as $R(\tau)$ and accumulated in $T$-step trajectory, finite time domain of the world.</p>
+<p>$$
+R(\tau) = \sum_{t=0}^T r_{t}
+$$</p>
+<p>The above equation of the return at each time step is valued based on the return of the next step. Such return is the <strong>finite-horizon undiscounted return</strong>. If the return is undervalued with respect to the time passed from the current time step. Above equation can be refomulated with the discount factor $\gamma \in (0,1)$ and the refomulated equation is the <strong>finite-horizon discounted return</strong>.</p>
+<p>$$
+R(\tau) = \sum_{t=0}^T \gamma^{t} r_{t}
+$$</p>
+<p>The return can be from the infinite time domain of the world, and in that case, the equation can be formulated as the <strong>infinite-horizon discounted return</strong>.</p>
+<p>$$
+R(\tau) = \sum_{t=0}^\infty \gamma^{t} r_{t}
+$$</p>
+<p>The reason why RL uses only the infinite form with discounted return is that mathematically, an infinite sum of rewards with the discounted factor is always converged to a finite value as various types of infinite series so that the return value can be finite and can be compared with other returns in the different trajectories.</p>
+<h2 id="exploration-vs-exploitation">
+  Exploration vs. Exploitation
+  <a class="anchor" href="#exploration-vs-exploitation">#</a>
+</h2>
+<!-- In this post, the [policy](#policy) in RL is introduced as a [**greedy algorithm**](https://en.wikipedia.org/wiki/Greedy_algorithm). Actually, the policy is a [**$\epsilon$-greedy algorithm**](https://en.wikipedia.org/wiki/Multi-armed_bandit#Semi-uniform_strategies). What is the difference between two greedy algorithms and the decisive reason that RL uses $\epsilon$-greedy algorithm?\ -->
+<p>Before moving on to expoloration and exploitation in RL, let&rsquo;s bring back the equation \eqref{rl-core} here, together with RL terminologies.</p>
+<p>$$
+\begin{align}
+Q(s_{t}, a_{t}) &amp; ← Q(s_{t}, a_{t}) + \alpha[r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a) - Q(s_{t}, a_{t})] \nonumber
+\\
+&amp; ← (1-\alpha)Q(s_{t}, a_{t}) + \alpha[r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a)] \nonumber
+\end{align}
+$$</p>
+<p>$$
+\begin{align}
+\text{where } &amp; Q(s_t, a_t) \text{ is the Q or Q-function at time } t, \nonumber
+\\
+&amp; t \text{ is the time step} \nonumber
+\\
+&amp; a \text{ is the action} \nonumber
+\\
+&amp; s \text{ is the state} \nonumber
+\\
+&amp; \alpha \text{ is the learning rate} \nonumber
+\\
+&amp; r \text{ is the return} \nonumber
+\\
+&amp; \gamma \text{ is the discount factor} \nonumber
+\end{align}
+$$</p>
+<p>From this section, we have seen almost all the definitions except the <strong>Q-function</strong> $Q(s_t, a_t)$ and the <strong>learning rate</strong> $\alpha$.</p>
+<p>The <strong>Q-function</strong> refers that the RL algorithm updates, and it is the expected reward with respect to an action $a$ given state $s$ at time $t$ in RL.<br>
+In the equation \eqref{rl-core}, $Q(s_t, a_t)$ is the <strong>old value</strong> of Q-function and $\gamma\max_{a}Q(s_{t+1}, a)$ is the <strong>estimation of the optimal future value</strong> of Q-function.
+The core RL algorithm updates the <strong>old value</strong> from the right hand side of the equation that adds the <strong>temporal difference</strong> $r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a) - Q(s_{t}, a_{t})$ to the <strong>old value</strong> $Q(s_{t}, a_{t})$ with <strong>learning rate</strong>.<br>
+The <strong>temporal difference</strong> means the difference between the <strong>old value</strong> $Q(s_{t}, a_{t})$ and <strong>new value or temporal difference target</strong> $r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a)$.</p>
+<p>The <strong>learning rate</strong> means how much a Q-function in the current state the agent considers against that in the next state.</p>
+<p>Now, we know all the terms of the RL core equation. Then, let&rsquo;s take a look how RL works in accordance with the equation.<br>
+Let&rsquo;s suppose that we are playing the RL cycle example game. The game will be played 6 times successively.<br>
+The game uses stochastic policy $\pi$, but very luckily, the agent gets the states from the same probabilistic actions every time: (0,0)-&gt;(0,1)-&gt;(0,2)-&gt;(0,3)-&gt;(1,2)-&gt;(2,2)-&gt;(2,1)-&gt;(goal).<br>
+The very first game scenario can be visualized as below.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">
+  <img src="q-fcn-upd-1.png" alt="q-fcn-upd-1" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><b>Fig 4. Reinforcement Learning Example, Scenario #1</b></td>
+</tr>
+</tbody>
+</table>
+<p>The right side of the 
+  <a href="/#q-fcn-upd-1">Fig 4</a> is a <strong>Q-Table</strong> that is the representation of the values of Q-functions. The <strong>Q-Table</strong> is initialized to 0 at the begining. After all the way through the journey of the character, only the Q-function, $Q(s_5, a_5)$ with action left given the state (2,1), is updated since only the destination state, goal point, awards the 2 points.</p>
+<p>Q-functions with an action awards the best expected return given the prior stateㄴ will be updated successively after 5 times additional games as below figures.</p>
+<p>
+  <img src="q-fcn-upd-2.png" alt="q-fcn-upd-2" />
+
+  <img src="q-fcn-upd-3.png" alt="q-fcn-upd-3" />
+
+  <img src="q-fcn-upd-4.png" alt="q-fcn-upd-4" />
+
+  <img src="q-fcn-upd-5.png" alt="q-fcn-upd-5" />
+
+  <img src="q-fcn-upd-6.png" alt="q-fcn-upd-6" /></p>
+<p>Then let&rsquo;s talk about the <strong>exploration</strong> and <strong>exploitation</strong>.<br>
+The <strong>exploration</strong> that searches all neighboring states of the current state. In other words, the <strong>exploration</strong> searches over the whole sample spaces of an action with high variance.<br>
+As opposed to that, <strong>exploitation</strong> means that searching fewer regions to improve the quality with a small perturbation.</p>
+<p>After 6 times successive game in the example, the character finds a path to the goal.
+With the high-inclination to <strong>exploitation</strong>, the character will follow the known path. Vice versa, the <strong>exploration</strong> leads the character to search other paths to the goal. Actually, in the example, there is a shorter path to the goal: (0,0)-&gt;(1,0)-&gt;(2,0)-&gt;(2,1)-&gt;(goal). Therefore, in this case, the RL algorithm should incline to <strong>exploration</strong> to find the better path to the goal.</p>
+<h2 id="greedy-algorithm">
+  Greedy Algorithm
+  <a class="anchor" href="#greedy-algorithm">#</a>
+</h2>
+<p>$$
+\begin{align}
+Q(s_{t}, a_{t}) &amp; ← Q(s_{t}, a_{t}) + \alpha[r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a) - Q(s_{t}, a_{t})] \nonumber
+\\
+&amp; ← (1-\alpha)Q(s_{t}, a_{t}) + \alpha[r_{t+1} + \gamma\max_{a}Q(s_{t+1}, a)] \nonumber
+\end{align}
+$$</p>
+<p>The RL core algorithm finds only one optimal action that maximizes the reward in the next state due to the term, $\max_{a}Q(s_{t+1}, a)$. Therefore, other actions is not considered. Such selection algorthm is called as 
+  <a href="https://en.wikipedia.org/wiki/Greedy_algorithm"><strong>greedy algorithm</strong></a>.
+With the <strong>greedy algorithm</strong>, RL core algorithm inclines to <strong>exploitation</strong>.<br>
+Then, what makes RL use <strong>exploration</strong>? The answer is 
+  <a href="https://en.wikipedia.org/wiki/Multi-armed_bandit#semi-uniform-strategies"><strong>$\epsilon$-greedy algorithm</strong></a>.</p>
+<p>$$
+A \leftarrow \biggl \{\begin{matrix}
+max_{a}Q(s_{t+1}, a) &amp;&amp; \text{with probability 1-}\epsilon
+\\
+\text{a random action} &amp;&amp; \text{with probability }\epsilon
+\end{matrix}\biggr.
+$$</p>
+<p><strong>$\epsilon$-greedy algorithm</strong> selects the optimal action that gives the maximized return for a proportion 1-$\epsilon$. A random action is chosen for a proportion $\epsilon$.
+However, if the RL algorithm is learning by using <strong>$\epsilon$-greedy algorithm</strong> after exploring diverse paths with high variation, it will become inefficient. Therefore, <strong>decaying $\epsilon$-greedy algrithm</strong> is used.</p>
+<p>The equation \eqref{rl-core} can be replaced as shown above.
+$\epsilon \in (0,1)$ in <strong>$\epsilon$-greedy algorithm</strong> is represented $\alpha$ in RL core algorithm.</p>
+<h2 id="rl-problem">
+  RL Problem
+  <a class="anchor" href="#rl-problem">#</a>
+</h2>
+<p>No matter what return type and policy are used, an agent tries to maximize the return. As seen in the above examples, there are various trajectory to get the return, and RL learns with trial and error, and updates the Q-Table while finding the path with the maximal <strong>expected return</strong>. This can be represented as formular and let&rsquo;s take a look step by step.</p>
+<p>State transitions and the policy are stochastic with exploration based learning. The probability of $T$-step trajectory can be represented as below:</p>
+<p>$$
+\begin{align}
+P(\tau|\pi) =\text{ }&amp; \rho_0 (s_0) \prod_{t=0}^{T-1} P(s_{t+1} | s_t, a_t) \pi(a_t | s_t). \nonumber
+\\
+\text{where } &amp; \tau \text{ is a sequence of states and action in the environment} \nonumber
+\\
+&amp; \rho_0 (s_0) \text{ is the start-state distribution } \nonumber
+\\
+&amp; P(s_{t+1} | s_t, a_t) \text{ is the state transition} \nonumber
+\\
+&amp; s \text{ is the state} \nonumber
+\\
+&amp; \pi(a_t | s_t) \text{ is the policy} \nonumber
+\end{align}
+$$</p>
+<p>Similary to 
+  <a href="https://en.wikipedia.org/wiki/Expected_value">expected value</a> in probability theory, the <strong>expected return</strong> $J(\pi)$ (for whichever measure) can be formulated as following.</p>
+<p>$$
+J(\pi) = \int_{\tau} P(\tau|\pi) R(\tau) = E_{\tau \sim \pi} [R(\tau)]
+$$</p>
+<p>Finally, the central optimization problem in RL is the <strong>optimal policy</strong> $\pi^*$</p>
+<p>$$
+\pi^* = \arg \max_{\pi} J(\pi)
+$$</p></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/commit/3a347993418da5970b35a2190235d5c3f835eb7c" title='Last modified by Sungjae Jung | February 22, 2022' target="_blank" rel="noopener">
+      <img src="/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>February 22, 2022</span>
+    </a>
+  </div>
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content/posts/ml/rl/rl-basic.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
+      <span>Edit this page</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#state-and-observation">State and Observation</a></li>
+        <li><a href="#action">Action</a></li>
+        <li><a href="#policy">Policy</a></li>
+        <li><a href="#trajectory">Trajectory</a></li>
+        <li><a href="#return">Return</a></li>
+        <li><a href="#exploration-vs-exploitation">Exploration vs. Exploitation</a></li>
+        <li><a href="#greedy-algorithm">Greedy Algorithm</a></li>
+        <li><a href="#rl-problem">RL Problem</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
