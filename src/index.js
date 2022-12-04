@@ -35,6 +35,20 @@ let moonBackground = document.querySelector(".moon-background");
 
 const ringsScene = new Scene();
 
+// PerspectiveCamera(a,b,c,d)
+// a : field of view (FOV)
+//     e.g. if FOV increases, the objects become smaller 
+// b : aspect ratio
+// c : view frustum
+//     e.g. 
+
+// PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
+// fov — Camera frustum vertical field of view, angle between the top and botom planes of the view pyramid.
+//      e.g. if FOV increases, the objects become smaller 
+// aspect — Camera frustum aspect ratio.
+// near — Camera frustum near plane.
+// far — Camera frustum far plane.
+
 const camera = new PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 1000);
 camera.position.set(0, 15, 50);
 
@@ -97,14 +111,15 @@ let mousePos = new Vector2(0,0);
   let pmrem = new PMREMGenerator(renderer);
   let envmapTexture = await new RGBELoader()
     .setDataType(FloatType)
-    .loadAsync("assets/old_room_2k.hdr");  // thanks to https://polyhaven.com/hdris !
+    .loadAsync("assets/qwantani_puresky_4k.hdr");  // thanks to https://polyhaven.com/hdris !
   let envMap = pmrem.fromEquirectangular(envmapTexture).texture;
 
   let textures = {
     // thanks to https://free3d.com/user/ali_alkendi !
-    bump: await new TextureLoader().loadAsync("assets/earthbump.jpg"),
-    map: await new TextureLoader().loadAsync("assets/earthmap.jpg"),
-    spec: await new TextureLoader().loadAsync("assets/earthspec.jpg"),
+    // thanks to http://planetpixelemporium.com/earth8081.html !
+    bump: await new TextureLoader().loadAsync("assets/8081_earthbump10k.jpg"),
+    map: await new TextureLoader().loadAsync("assets/8081_earthmap10k.jpg"),
+    spec: await new TextureLoader().loadAsync("assets/8081_earthspec10k.jpg"),
     planeTrailMask: await new TextureLoader().loadAsync("assets/mask.png"),
   };
 
@@ -128,7 +143,7 @@ let mousePos = new Vector2(0,0);
   );
   sphere.sunEnvIntensity = 0.4;
   sphere.moonEnvIntensity = 0.1;
-  sphere.rotation.y += Math.PI * 1.25;
+  sphere.rotation.y += Math.PI * 1.25;  // rotate sphere
   sphere.receiveShadow = true;
   scene.add(sphere);
 
@@ -177,6 +192,9 @@ let mousePos = new Vector2(0,0);
   ring3.sunOpacity = 0.35;
   ring3.moonOpacity = 0.03;
   ringsScene.add(ring3);
+  scene.add(ring1);
+  scene.add(ring2);
+  scene.add(ring3);
 
   // https://sketchfab.com/3d-models/cartoon-plane-f312ec9f87794bdd83630a3bc694d8ea#download
   // "Cartoon Plane" (https://skfb.ly/UOLT) by antonmoek is licensed under Creative Commons Attribution 
@@ -361,6 +379,6 @@ window.addEventListener("mousemove", (e) => {
   let x = e.clientX - innerWidth * 0.5; 
   let y = e.clientY - innerHeight * 0.5;
 
-  mousePos.x = x * 0.0003;
-  mousePos.y = y * 0.0003;
+  mousePos.x = x * 0.01;
+  mousePos.y = y * 0.01;
 });
