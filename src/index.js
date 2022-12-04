@@ -117,9 +117,9 @@ let mousePos = new Vector2(0,0);
   let textures = {
     // thanks to https://free3d.com/user/ali_alkendi !
     // thanks to http://planetpixelemporium.com/earth8081.html !
-    bump: await new TextureLoader().loadAsync("assets/8081_earthbump10k.jpg"),
-    map: await new TextureLoader().loadAsync("assets/8081_earthmap10k.jpg"),
-    spec: await new TextureLoader().loadAsync("assets/8081_earthspec10k.jpg"),
+    bump: await new TextureLoader().loadAsync("assets/8081_earthbump4k.jpg"),
+    map: await new TextureLoader().loadAsync("assets/8081_earthmap4k.jpg"),
+    spec: await new TextureLoader().loadAsync("assets/8081_earthspec4k.jpg"),
     planeTrailMask: await new TextureLoader().loadAsync("assets/mask.png"),
   };
 
