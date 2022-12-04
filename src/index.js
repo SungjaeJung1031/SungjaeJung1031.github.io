@@ -111,16 +111,16 @@ let mousePos = new Vector2(0,0);
   let pmrem = new PMREMGenerator(renderer);
   let envmapTexture = await new RGBELoader()
     .setDataType(FloatType)
-    .loadAsync("assets/qwantani_puresky_4k.hdr");  // thanks to https://polyhaven.com/hdris !
+    .loadAsync("assets/img/qwantani_puresky_4k.hdr");  // thanks to https://polyhaven.com/hdris !
   let envMap = pmrem.fromEquirectangular(envmapTexture).texture;
 
   let textures = {
     // thanks to https://free3d.com/user/ali_alkendi !
     // thanks to http://planetpixelemporium.com/earth8081.html !
-    bump: await new TextureLoader().loadAsync("assets/8081_earthbump4k.jpg"),
-    map: await new TextureLoader().loadAsync("assets/8081_earthmap4k.jpg"),
-    spec: await new TextureLoader().loadAsync("assets/8081_earthspec4k.jpg"),
-    planeTrailMask: await new TextureLoader().loadAsync("assets/mask.png"),
+    bump: await new TextureLoader().loadAsync("assets/img/8081_earthbump4k.jpg"),
+    map: await new TextureLoader().loadAsync("assets/img/8081_earthmap4k.jpg"),
+    spec: await new TextureLoader().loadAsync("assets/img/8081_earthspec4k.jpg"),
+    planeTrailMask: await new TextureLoader().loadAsync("assets/img/mask.png"),
   };
 
   // Important to know!
@@ -199,7 +199,7 @@ let mousePos = new Vector2(0,0);
   // https://sketchfab.com/3d-models/cartoon-plane-f312ec9f87794bdd83630a3bc694d8ea#download
   // "Cartoon Plane" (https://skfb.ly/UOLT) by antonmoek is licensed under Creative Commons Attribution 
   // (http://creativecommons.org/licenses/by/4.0/).
-  let plane = (await new GLTFLoader().loadAsync("assets/plane/scene.glb")).scene.children[0];
+  let plane = (await new GLTFLoader().loadAsync("assets/glb/plane/scene.glb")).scene.children[0];
   let planesData = [
     makePlane(plane, textures.planeTrailMask, envMap, scene),
     makePlane(plane, textures.planeTrailMask, envMap, scene),
