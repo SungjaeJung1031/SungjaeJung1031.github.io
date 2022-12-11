@@ -1,16 +1,10 @@
 import {
   DoubleSide,
-  PCFSoftShadowMap,
   MeshPhysicalMaterial,
   TextureLoader,
   FloatType,
   PMREMGenerator,
-  Scene,
-  PerspectiveCamera,
-  WebGLRenderer,
   Color,
-  ACESFilmicToneMapping,
-  sRGBEncoding,
   Mesh,
   SphereGeometry,
   MeshBasicMaterial,
@@ -24,45 +18,25 @@ import {
   Group,
 } from "https://cdn.skypack.dev/three@0.137";
 import { RGBELoader } from "https://cdn.skypack.dev/three-stdlib@2.8.5/loaders/RGBELoader";
-import { OrbitControls } from "https://cdn.skypack.dev/three-stdlib@2.8.5/controls/OrbitControls";
 import { GLTFLoader } from "https://cdn.skypack.dev/three-stdlib@2.8.5/loaders/GLTFLoader";
 import anime from 'https://cdn.skypack.dev/animejs@3.2.1';
+import App from './app.js'
 
-const scene = new Scene();
+const app = new App();
+app.init();
 
 let sunBackground = document.querySelector(".sun-background");
 let moonBackground = document.querySelector(".moon-background");
 
-const ringsScene = new Scene();
+const scene = app.scene;
+const ringsScene = app.ringsScene;
 
-// PerspectiveCamera(a,b,c,d)
-// a : field of view (FOV)
-//     e.g. if FOV increases, the objects become smaller 
-// b : aspect ratio
-// c : view frustum
-//     e.g. 
+const renderer = app.renderer
 
-// PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
-// fov — Camera frustum vertical field of view, angle between the top and botom planes of the view pyramid.
-//      e.g. if FOV increases, the objects become smaller 
-// aspect — Camera frustum aspect ratio.
-// near — Camera frustum near plane.
-// far — Camera frustum far plane.
+const camera = app.camera;
+const ringsCamera = app.ringsCamera;
 
-const camera = new PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 1000);
-camera.position.set(0, 15, 50);
-
-const ringsCamera = new PerspectiveCamera(45, innerWidth / innerHeight, 0.1, 1000);
-ringsCamera.position.set(0, 0, 50);
-
-const renderer = new WebGLRenderer({ antialias: true, alpha: true });
-renderer.setSize(innerWidth, innerHeight);
-renderer.toneMapping = ACESFilmicToneMapping;
-renderer.outputEncoding = sRGBEncoding;
-renderer.physicallyCorrectLights = true;
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = PCFSoftShadowMap;
-document.body.appendChild(renderer.domElement);
+document.body.appendChild(app.renderer.domElement);
 
 const sunLight = new DirectionalLight(
   new Color("#FFFFFF").convertSRGBToLinear(),
@@ -78,7 +52,7 @@ sunLight.shadow.camera.left = -10;
 sunLight.shadow.camera.bottom = -10;
 sunLight.shadow.camera.top = 10;
 sunLight.shadow.camera.right = 10;
-scene.add(sunLight);
+app.scene.add(sunLight);
 
 const moonLight = new DirectionalLight(
   new Color("#77ccff").convertSRGBToLinear(),
@@ -100,10 +74,7 @@ scene.add(moonLight);
 // const helper = new CameraHelper( light.shadow.camera );
 // scene.add( helper );
 
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 0, 0);
-controls.dampingFactor = 0.05;
-controls.enableDamping = true;
+const controls = app.controls;
 
 let mousePos = new Vector2(0,0);
 
