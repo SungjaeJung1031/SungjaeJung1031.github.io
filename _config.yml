@@ -76,6 +76,10 @@ navs:
     href: /about
     label: About
 
+  -
+    href: /cv
+    label: CV
+
 # Sidebar to show popular repo
 side_bar_repo_limit: 5 # Number of repos to show
 
