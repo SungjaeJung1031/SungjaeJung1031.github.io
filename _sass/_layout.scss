@@ -4,17 +4,15 @@
 .site-header {
   border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
-
   padding-top: 10px;
   padding-bottom: 10px;
+  // Positioning context for the mobile navigation icon
+  position: relative;
 
   @include media-query($on-mobile) {
     padding-top: 0;
     padding-bottom: 0;
   }
-
-  // Positioning context for the mobile navigation icon
-  position: relative;
 }
 
 .site-title {
@@ -107,7 +105,7 @@
 
 .footer-heading {
   font-size: 18px;
-  margin-bottom: $spacing-unit / 2;
+  margin-bottom: calc($spacing-unit / 2);
 }
 
 .contact-list,
@@ -119,14 +117,14 @@
 .footer-col-wrapper {
   font-size: 15px;
   color: $grey-color;
-  margin-left: -$spacing-unit / 2;
+  margin-left: calc($spacing-unit / -2);
   @extend %clearfix;
 }
 
 .footer-col {
   float: left;
-  margin-bottom: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
+  margin-bottom: calc($spacing-unit / 2);
+  padding-left: calc($spacing-unit / 2);
 }
 
 .footer-col-1,
