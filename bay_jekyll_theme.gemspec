@@ -3,12 +3,12 @@
 Gem::Specification.new do |spec|
   spec.name          = "bay_jekyll_theme"
   spec.version       = "1.1.2"
-  spec.authors       = ["Eliott Vincent"]
-  spec.email         = ["hello@eliottvincent.com"]
+  spec.authors       = ["Sungjae JUNG"]
+  spec.email         = ["sungjae.jung1031@gmail.com"]
 
   spec.summary       = %q{A simple and minimal Jekyll theme..}
-  spec.homepage      = "https://github.com/eliottvincent/bay"
-  spec.license       = "MIT"
+  spec.homepage      = "https://github.com/SungjaeJung1031/SungjaeJung1031.github.io"
+  spec.license       = "BSD-3-Clause"
 
   spec.files         = `git ls-files -z`.split("\x0").select do |f|
     f.match(%r{^((_includes|_layouts|_sass|assets)/|(LICENSE|README|CHANGELOG)((\.(txt|md|markdown|js|css)|$)))}i)
