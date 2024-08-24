@@ -1,8 +1,8 @@
 ---
-layout: page
-title: All My Blogs
-subtitle: <span class="mega-octicon octicon-clippy"></span>&nbsp;&nbsp; Take notes about everything new
-menu: blog
-css: ['blog-page.css']
+layout: blog
+title: Blog
+slug: /blog
 ---
-{% include blog-page.html %}
+
+This is an example of a "Blog" page, displaying a list of posts.
+<br />

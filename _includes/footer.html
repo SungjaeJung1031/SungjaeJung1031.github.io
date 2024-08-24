@@ -1,47 +1,95 @@
-<footer class="container">
+<footer class="site-footer">
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <h4>CONTACT</h4>
 
-    <div class="site-footer">
+        <div class="social-links">
+          {% for contact in site.footer.contact %}
+            <div class="social-link contact-links">
 
-        <div class="copyright pull-left">
-            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
-            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
-            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+              {% assign contact_icon_path = "/assets/img/icons/" | append: contact.type | downcase | append: ".png" | absolute_url %}
+              <img
+                src="{{ contact_icon_path }}"
+                alt="{{ contact.type }}"
+              />
+
+              {% if contact.type == "email" %}
+                {% if contact.cloak != false %}
+                  {% assign email_parts = contact.value | split: "@" %}
+                  {% assign user = email_parts[0] %}
+                  {% assign domain = email_parts[1] | split: "." %}
+                  {% assign domain_name = domain[0] %}
+                  {% assign domain_tld = domain[1] %}
+
+                  {% assign reversed_user = user | split: "" | reverse | join: "" %}
+                  {% assign reversed_domain_name = domain_name | split: "" | reverse | join: "" %}
+                  {% assign reversed_domain_tld = domain_tld | split: "" | reverse | join: "" %}
+                  <span
+                    data-resu="{{ reversed_user }}"
+                    data-eman-niamod="{{ reversed_domain_name }}"
+                    data-dlt-niamod="{{ reversed_domain_tld }}"
+                    id="{{ contact.type }}-link"
+                    class="link email-link-cloaked"
+                  >
+                    {{ contact.name }}
+                  </span>
+                {% else %}
+                  <a href="mailto:{{ contact.value }}" id="{{ contact.type }}-link">
+                    {{ contact.value }}
+                  </a>
+                {% endif %}
+              {% else %}
+                <a href="{{ contact.link }}" id="{{ contact.type }}-link">
+                  {% if contact.value and contact.value != "" and contact.value != nil %}
+                    {{ contact.value }}
+                  {% else %}
+                    {{ contact.name }}
+                  {% endif %}
+                </a>
+              {% endif %}
+            </div>
+
+          {% endfor %}
         </div>
+      </div>
 
-        <a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
-            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
-        </a>
+      <div class="footer-col footer-col-2">
+        {% if site.footer.follow and site.footer.follow.size > 0 %}
+          <h4>FOLLOW</h4>
 
-        <div class="pull-right">
-            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+          <div class="social-links follow-links">
+            {% for follow in site.footer.follow %}
+              <div class="social-link">
+
+                {% assign follow_icon_path = "/assets/img/icons/" | append: follow.name | downcase | append: ".png" | absolute_url %}
+                <img
+                  src="{{ follow_icon_path }}"
+                  alt="{{ follow.name | downcase }}"
+                />
+                <a href="{{ follow.link }}">
+                  {% if follow.value and follow.value != "" and follow.value != nil %}
+                    {{ follow.value }}
+                  {% else %}
+                    {{ follow.name }}
+                  {% endif %}
+                </a>
+              </div>
+
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if site.footer.show_powered_by == true %}
+        <div class="footer-col footer-col-3 powered-by">
+          <p>
+            powered by <a href="https://github.com/eliottvincent/bay">Bay</a> | <span id="year"></span>
+          </p>
         </div>
-
+      {% endif %}
     </div>
-
-    <!-- Third-Party JS -->
-    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
-
-    <!-- My JS -->
-    <script type="text/javascript" src="/assets/js/script.js"></script>
-
-    {% for javascript in page.javascript %}
-    <script src="/assets/js/{{javascript}}"></script>
-    {% endfor %}
-
-    {% if site.analytics.google.tracking_id %}
-    <!-- Google Analytics -->
-    <div style="display:none">
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', '{{ site.analytics.google.tracking_id }}', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-    </div>
-    {% endif %}
-
+  </div>
 </footer>
+
+{% include wechat-widget.html %}
