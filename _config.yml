@@ -12,11 +12,11 @@ email: sungjae.jung1031@gmail.com
 location: My location # ex. Nice, France
 company: MyCompany
 company_url: my_company_website
-github_url: my_github_url # ex. https://github.com/DONGChuan
-github_username: # ex. DONGChuan
-description: description_of_your_web_site
+github_url: https://github.com/SungjaeJung1031 # ex. https://github.com/DONGChuan
+github_username: SungjaeJung1031  # ex. DONGChuan
+description: Sungjae JUNG
 favicon: favicon.png # Image must be in assets/images
-repository: github_username/github_username.github.io # ex. DONGChuan/DONGChuan.github.io
+repository: SungjaeJung1031/SungjaeJung1031.github.io # ex. DONGChuan/DONGChuan.github.io
 
 # The base hostname & protocol for your site
 # For local test, please use http://localhost:4000
