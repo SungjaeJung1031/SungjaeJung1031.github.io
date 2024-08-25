@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  {% include head.html %}
+  {% include about/head-about.html %}
 
   <body>
     {% include header.html %}
@@ -8,23 +8,64 @@
     <div class="page-content">
       <div class="wrapper">
         <div class="about">
-          <h1 class="page-heading">{{ page.title }}</h1>
-          {{ content }}
-
-          <p class="about-post-list">
-            {% for post in site.posts %}
-
-              {% if post.draft != true %}
-                <span class="about-post-date">{{ post.date | date: "%-m/%-d/%y" }}</span>
-                <a href="{{ post.url | replace:".html","" | prepend: site.baseurl }}" class="about-post-title">
-                  {{ post.title }}
-                </a>
-                <br />
-
-              {% endif %}
-
-            {% endfor %}
-          </p>
+          <div class="container">
+        
+            <hr style="height: 1px; margin-bottom:0px; margin-top:0px ; border-color: #000000">
+        
+            {% include about/header3lite.html %}
+        
+            <hr style="height: 1px; margin-bottom:10px; margin-top:0px ; border-color: #000000">
+        
+            <div class="row">
+        
+              <div class="col-xs-12" style="margin-bottom:10px;">
+        
+                {% include about/workexperience6lite.html %}
+        
+              </div>
+        
+            </div>
+        
+            <hr style="height: 1px; margin-bottom:10px; margin-top:0px ; border-color: #000000">
+        
+            <div class="row">
+        
+              <div class="col-xs-12" style="margin-bottom:10px;">
+        
+                {% include about/education5.html %}
+        
+              </div>
+        
+            </div>
+        
+            <hr style="height: 1px; margin-bottom:10px; margin-top:0px ; border-color: #000000">
+        
+            <div class="row">
+        
+              <div class="col-xs-12" style="margin-bottom:10px;">
+        
+                {% include about/skills4.html %}
+        
+              </div>
+        
+            </div>
+        
+        
+            <hr style="height: 1px; margin-bottom:10px; margin-top:0px ; border-color: #000000">
+        
+            <div class="row">
+        
+              <div class="col-xs-12" style="margin-bottom:10px;">
+        
+                {% include about/language.html %}
+        
+              </div>
+        
+            </div>
+        
+            <hr
+              style="border: 0; height: 1px; background: #333; background-image: linear-gradient(to right, #ccc, #333, #ccc); page-break-after: always;">
+          </div>
         </div>
       </div>
     </div>
